@@ -12,17 +12,13 @@ public class OrderController {
     private OrderDAO orderDAO = new OrderDAO();
     private OrderItemDAO orderItemDAO = new OrderItemDAO();
 
-    // Xóa toàn bộ các field và method liên quan đến CartItem riêng
-    // public static class CartItem ... (xóa)
-
-    // Phương thức checkout mới nhận CartController
     public boolean checkout(CartController cartController, String customerName, String phone, String email) {
         List<OrderItem> cartItems = cartController.getCartItems();
         if (cartItems.isEmpty()) return false;
 
         BigDecimal total = BigDecimal.ZERO;
         for (OrderItem item : cartItems) {
-            // item.getPrice() là giá tại thời điểm thêm, nhân với số lượng
+            
             total = total.add(item.getPrice().multiply(BigDecimal.valueOf(item.getQuantity())));
         }
 
@@ -45,11 +41,10 @@ public class OrderController {
             orderItemDAO.addOrderItem(oi);
         }
 
-        cartController.clearCart();  // Xóa giỏ hàng sau khi thanh toán
+        cartController.clearCart();  
         return true;
     }
 
-    // Các phương thức khác giữ nguyên
     public List<Order> getAllOrders() {
         return orderDAO.getAllOrders();
     }
