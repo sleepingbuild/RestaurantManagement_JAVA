@@ -8,7 +8,7 @@ import java.awt.event.MouseEvent;
 
 public class UIHelper {
 
-    // Hover button
+
     public static void applyHoverEffect(JButton button, Color normal, Color hover){
 
         button.setBackground(normal);
@@ -24,7 +24,7 @@ public class UIHelper {
         });
     }
 
-    // Card hover (đổ bóng giả)
+
     public static void applyCardHover(JPanel panel){
 
         panel.addMouseListener(new MouseAdapter() {
@@ -38,14 +38,14 @@ public class UIHelper {
         });
     }
 
-    // Scroll mượt hơn
+
     public static void smoothScroll(JScrollPane scroll){
 
         scroll.getVerticalScrollBar().setUnitIncrement(16);
         scroll.setBorder(null);
     }
 
-    // Table đẹp hơn
+    
     public static void styleTable(JTable table){
 
         table.setRowHeight(32);
